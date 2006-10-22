@@ -1,0 +1,6 @@
+\.swp$
+^pm_to_blib$
+\bblib
+^\.
+^Makefile$
+\.bak$
