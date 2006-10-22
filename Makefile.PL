@@ -1,18 +1,16 @@
 use strict;
 use warnings;
-use ExtUtils::MakeMaker;
+use inc::Module::Install;
 
-WriteMakefile(
-    NAME                => 'Audio::XMMSClient::XMLRPC',
-    AUTHOR              => 'Florian Ragwitz <rafl@debian.org>',
-    VERSION_FROM        => 'lib/Audio/XMMSClient/XMLRPC.pm',
-    ABSTRACT_FROM       => 'lib/Audio/XMMSClient/XMLRPC.pm',
-    PL_FILES            => {},
-    PREREQ_PM => {
-        'Test::More'        => 0,
-        'RPC::XML'          => 0,
-        'Audio::XMMSClient' => 0,
-    },
-    dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
-    clean               => { FILES => 'Audio-XMMSClient-XMLRPC-*' },
-);
+name     ( 'Audio-XMMSClient-XMLRPC'      );
+all_from ( 'lib/Audio/XMMSClient/XMLRPC.pm' );
+
+requires ( 'RPC::XML'          );
+requires ( 'Audio::XMMSClient' );
+
+build_requires ( 'Test::More' );
+
+install_script ( 'bin/xmms2-xmlrpc' );
+
+auto_install ();
+WriteAll ();

@@ -4,3 +4,4 @@
 ^\.
 ^Makefile$
 \.bak$
+^Audio-XMMSClient-XMLRPC
